@@ -1,0 +1,553 @@
+/*VISUAL*/
+.visual{
+  margin-top: 120px;/*헤더의 이너부분의 높이값*/
+  background-image: url("../images/visual_bg.jpg");
+  background-position: center;/*정가운데 하나만 넣겠다*/
+}
+.visual .inner {
+  height: 646px;
+}
+.visual .title {
+  position:absolute;
+  top: 88px; /* 위에서 88지점으로 배치 */
+  left: -10px; /* 부모요소기준으로 -10지점에 타이틀위치 */
+}
+.visual .title .btn {/* 부모요소기준(타이틀) */
+  position: absolute;
+  top: 259px;
+  left: 173px;
+}
+.visual .cup1.image {
+  position: absolute;
+  bottom: 0;
+  right: -47px;
+}
+.visual .cup1.text {
+  position: absolute;
+  top: 38px;
+  right: 171px;
+}
+.visual .cup2.image {
+  position: absolute;
+  bottom: 0;
+  right: 162px;
+}
+.visual .cup2.text{
+  position: absolute;
+  top: 321px;
+  right: 416px;
+}
+.visual .spoon {
+  position: absolute;
+  bottom: 0;
+  left: 275px;
+}
+.visual .fade-in{
+  opacity: 0; /*투명도 0퍼센트 :: 안보인다 -> .js에서 순차적으로 나타나게 해준다*/
+}
+
+/* NOTICE */
+/* NOTICE LINE*/
+.notice .notice-line {
+  position: relative;
+}
+.notice .notice-line .bg-left{
+  position: absolute;/* 부모 요소 기준으로 배치를 하겠다 */
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #333;
+}
+.notice .notice-line .bg-right{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #f6f5ef;
+}
+.notice .notice-line .inner{/* NOTICE의 높이 부분 제어 */
+  height: 62px;
+  z-index: 1;
+  display: flex;
+}
+.notice .notice-line .inner__left{
+  width: 60%;
+  height: 100%;
+  background-color: #333;
+  display: flex;/*자식요소들이 수평이되면서 L60% R40%*/
+  align-items: center;
+}
+.notice .notice-line .inner__left h2{ /*공지사항*/
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  margin-right: 20px;
+}
+.notice .notice-line .inner__left .swiper-container {/*공지사항과  더보기 버튼 사이 공간*/
+  flex-grow: 1;/*최대한 늘리기*/
+  height: 62px;
+
+}
+.notice .notice-line .inner__left .swiper-slide {
+  height: 62px;
+  display: flex;
+  align-items: center;
+}
+.notice .notice-line .inner__left .swiper-slide a {
+  color: #fff;
+}
+.notice .notice-line .inner__left .notice-line__more {/*공지사항라인의 더보기 버튼*/
+  width: 62px;
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notice .notice-line .inner__left .notice-line__more .material-icons {
+  color:#fff;
+  font-size: 30px;
+}
+.notice .notice-line .inner__right{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end; /*수평의 끝점으로 밀어버리겠다 ::오른쪽 정렬*/
+  align-items: center;/*수직가운데 정렬*/
+}
+.notice .notice-line .inner__right h2{
+  font-size: 17px;
+  font-weight: 700; /* px을 쓰지않음 */
+}
+.notice .notice-line .inner__right .toggle-promotion{  /*스타벅스 프로모션*/
+  width: 62px;
+  height: 62px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notice .notice-line .inner__right .toggle-promotion .material-icons{
+  font-size: 30px;
+}
+
+
+/*PROMOTION*/
+.notice .promotion {
+  /*width: auto;*/
+  height: 693px;  /*전체 공간의 총 높이*/
+  background-color: #f6f5ef;
+  position: relative;
+  overflow: hidden;
+  transition: height .4s;
+}
+.notice .promotion.hide {
+  height: 0;/*높이를 0픽셀로 축소시며버림*/
+}
+.notice .promotion .swiper-container {
+  /* 819px 슬라이드 3개와 그 사이 여백 10px씩 = 2477px */
+  width: calc(819px * 3 + 20px);
+  height: 553px;
+  position: absolute;
+  top: 40px;
+  left: 50%; /* 위치를 50퍼에서 오른쪽 끝까지로 했지만 */
+  margin-left: calc((819px * 3 + 20px) / -2);/* 왼쪽으로 끌어와서 중간 지점에 위치 */
+}
+.notice .promotion .swiper-slide {
+  position: relative;/*구조상 부모요소를 위치상의 부모요소로 맞춤 *2 */
+  opacity: .5; /* 전체 사진 요소들 투명도 설정 */
+  transition: opacity 1s;/* 투명도를 자연스럽게 바꿔준다 */
+}
+.notice .promotion .swiper-slide-active {
+  opacity: 1; /* 가운데 사진 요소만 투명도 제거 */
+}
+.notice .promotion .swiper-slide .btn {
+  /*width: 130px;*/
+  position: absolute; /*부모요소 기준으로 버튼 배치 *1 */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.notice .promotion .swiper-pagination {
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+.notice .promotion .swiper-pagination .swiper-pagination-bullet {
+  background-color: transparent;/* 투명한 색을 사용하겠다 */
+  background-image: url("../images/promotion_slide_pager.png");
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+  outline: none;
+}
+.notice .promotion .swiper-pagination .swiper-pagination-bullet:last-child {
+  margin-right: 0;/* 가장 마지막 동그라미 우측에는 여백을 만들지 않겠다 */
+}
+.notice .promotion .swiper-pagination .swiper-pagination-bullet-active {
+  background-image: url("../images/promotion_slide_pager_on.png");/* 페이지 부분에 on이라고 불이 들어와있다 */
+}
+.notice .promotion .swiper-prev, /* 쉼표로 다중 선택자 */
+.notice .promotion .swiper-next {
+  width: 42px;
+  height: 42px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  position: absolute; /* 부모요소를 기준으로 배치하겠다 */
+  /* Swiper Container 높이의 절반만큼 끌어올림 */
+  /* 버튼 높이의 절반만큼 추가로 끌어올림 */
+  top: 300px;
+  z-index: 1; /* 슬라이드요소보다 더 위에 쌓이게 한다 */
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .4s;
+}
+.notice .promotion .swiper-prev {
+  left: 50%;
+  margin-left: -480px;
+}
+.notice .promotion .swiper-next {
+  right: 50%;
+  margin-right: -480px;
+}
+.notice .promotion .swiper-prev:hover,
+.notice .promotion .swiper-next:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/*REWARDS*/
+.rewards { 
+  position: relative;
+}
+.rewards .bg-left { 
+  width: 50%;
+  height: 100%;
+  background-color: #272727;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.rewards .bg-right {
+  width: 50%;
+  height: 100%;
+  background-color: #d5c798;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.rewards .inner { /*배경이미지 삽입*/
+  background-image: url("../images/rewards.jpg");
+  height: 241px; /*높이값*/
+}
+.rewards .btn-group {
+  position: absolute;
+  right: 0;
+  bottom: 24px;
+  width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.rewards .btn-group .btn.sign-up {
+  margin-right: 10px;
+}
+.rewards .btn-group .btn.sign-in {
+  width: 110px;
+}
+.rewards .btn-group .btn.gift {
+  margin-top: 10px;
+  flex-grow: 1;
+}
+
+
+/*YOUTUBE VIDEO*/
+.youtube {
+  position: relative;
+  height: 700px;
+  background-color: #333;
+  overflow: hidden;
+}
+.youtube .youtube__area {
+
+  width: 1920px;
+  position: absolute;/* .youtube 라는 부모요소 기준 */
+  /* 16비율 */
+  left: 50%;
+  margin-left: calc(1920px / -2); /* 연산하는 만큼 당겨오기 */
+  /* 9비율 */
+  top: 50%;/*위에서 50퍼 만큼 여백생성*/
+  margin-top: calc(1920px * 9 / 16 / -2);/* 연산하는 만큼 당겨오기 */
+}
+.youtube .youtube__area::before {/*가상요소 선택자 ::before */
+  content: "";
+  display: block;
+  /* 16:9 영상 비율로 요소 크기 만들기! */
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;/* 내부에 윗쪽 여백 추가 */
+}
+.youtube .youtube__cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.3);/* 마지막 알파값 : 30퍼정도의 불투명도 값을 가진다 */
+  background-image: url("../images/video_cover_pattern.png");
+}
+#player { /*부모요소는 .youtube__area */
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.youtube .inner {
+  height: inherit;
+}
+.youtube .floating1 {
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+.youtube .floating2 {
+  position: absolute;
+  top: 350px;
+  left: 150px;
+}
+
+
+/*SEASON PRODUCT*/
+.season-product {
+  background-image: url("../images/season_product_bg.jpg");
+}
+.season-product .inner {
+  height: 400px;
+}
+.season-product .floating3 {
+  position: absolute;
+  top: -200px; /* 이 섹션에서 -200만큼 위로 빠지게 */
+  right: 0;
+}
+.season-product .text-group {
+  position: absolute;
+  top: 110px; /* 위에서 110px지점에 위치 */
+  right: 100px;/* 우측에서 100px지점에 위치 */
+}
+.season-product .text-group .title {
+  margin-bottom: 10px; /* 글 사이에 여백추가 */
+}
+.season-product .text-group .description {
+  margin-bottom: 15px; /* 글 사이에 여백추가 */
+}
+
+
+/*RESERVE COFFEE*/
+.reserve-coffee { /* 섹션에 배경 추가 */
+  background-image: url("../images/reserve_bg.jpg");
+}
+.reserve-coffee .inner {
+  height: 400px;
+}
+.reserve-coffee .reserve-logo {
+  position: absolute;
+  top: 110px; 
+  left: 0;
+}
+.reserve-coffee .text-group {
+  position: absolute;
+  top: 124px;
+  left: 208px;
+}
+.reserve-coffee .product {
+  position: absolute;
+  top: 0;    /* 위에서 0지점에 배치 */
+  right: 0;  /* 오른쪽에서 0지점에 배치 */
+}
+
+
+/*PICK YOUR FAVORITE*/
+.pick-your-favorite {
+  background-image: url("../images/favorite_bg.jpg");
+  background-repeat: no-repeat; /*반복되지않고 하나의 이미지만 나오도록 설정*/
+  background-position: center;  /*배경의 위치는 섹션의 정가운데*/
+  background-attachment: fixed; /*요소가 화면의 위아래로 스크롤이 될 때 요소의 배경으로 설치되어있는 이미지가 같이 스크롤되지않게 고정*/
+  background-size: cover;  /*배경의 이미지를 더 넓은 너비에 맞춰서 출력*/
+}
+.pick-your-favorite .inner {
+  padding: 110px 0;
+}
+.pick-your-favorite .text-group { 
+  width: 362px; /* 가로너비 제한 */
+  margin-left: 100px;
+  display: flex;  /*요소 수평정렬*/
+  justify-content: flex-end; /*요소들이 공간 끝쪽에 붙어서 정렬*/
+  flex-wrap: wrap; /* 줄바꿈이 가능한 형태 */
+}
+.pick-your-favorite .text-group .title {
+  margin-bottom: 40px;
+}
+.pick-your-favorite .text-group .description {
+  margin-bottom: 40px;
+}
+
+
+/*RESERVE STORE*/
+.reserve-store {
+  background-image: url("../images/reserve_store_bg.jpg");
+  background-repeat: no-repeat;  /*반복되지않고 하나의 이미지만 나오도록 설정*/
+  background-position: center; /*배경의 위치는 섹션의 정가운데*/
+  background-attachment: fixed;/*요소가 화면의 위아래로 스크롤이 될 때 요소의 배경으로 설치되어있는 이미지가 같이 스크롤되지않게 고정*/
+  background-size: cover; /*배경의 이미지를 더 넓은 너비에 맞춰서 출력*/
+}
+.reserve-store .inner {
+  height: 600px;
+  display: flex;
+  justify-content: center;  /*수평 가운데 정렬*/
+  align-items: center;      /*수직 가운데 정렬*/
+}
+.reserve-store .medal {
+  width: 334px;
+  height: 334px;
+  perspective: 600px; /*버튼의 원근거리 추가*/
+}
+/*선택자를 2개 이상 작성하는 다중 선택자*/
+.reserve-store .medal .front,
+.reserve-store .medal .back {
+  width: inherit;
+  height: inherit;
+  position: absolute; 
+  transition: 1s; /*자연스럽게 전환효과 추가*/
+  backface-visibility: hidden; /*뒤집어졌을때 뒷면은 안보이게*/
+}
+.reserve-store .medal .front {
+  transform: rotateY(0deg); /*0도에서 시작하겠다*/
+}
+.reserve-store .medal:hover .front {/*가상클래스를 추가해서 메달에 마우스를 올리면 front를 어떻게 처리할 지*/
+  transform: rotateY(180deg); /*180도 만큼 요소 뒤집기*/
+}
+.reserve-store .medal .back {
+  transform: rotateY(-180deg); /*-180도 만큼 요소 뒤집기*/
+}
+.reserve-store .medal:hover .back {
+  transform: rotateY(0deg);/*원래상태로 돌아오도록*/
+}
+.reserve-store .medal .back .btn { /*하단부분 버튼추가*/
+  position: absolute;/*부모요소 기준으로 배치*/
+  top: 240px; /*위에서 240픽셀지점*/
+  left: 0;    /*왼쪽에서 0픽셀 지점*/
+  right: 0;   /*오른족에서 0픽셀 지점*/
+  margin: auto;
+}
+
+
+/*FIND STORE*/
+.find-store {
+  background-image: url("../images/find_store_bg.jpg");
+}
+.find-store .inner {
+  height: 400px;
+}
+.find-store .texture1 {
+  position: absolute;
+  top: 0;
+  left: 400px;
+}
+.find-store .texture2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.find-store .picture {/* picture1,2의 공동적인 부분 제어 */
+  border-radius: 50%;/* 사진들을 둥글게 깎기 */
+  box-shadow: 2px 2px 8px 0 rgba(0,0,0,.5);/*검정색의 50퍼정도 불투명도를 가지는 그림자 생성*/
+  position: absolute;
+}
+.find-store .picture1 {
+  top: -60px;
+  left: 0;
+}
+.find-store .picture2 {
+  top: 150px;
+  left: 250px;
+}
+.find-store .text-group {
+  position: absolute;
+  top: 120px;
+  left: 550px;
+}
+.find-store .text-group .title {
+  margin-bottom: 20px;
+}
+.find-store .text-group .description {
+  margin-bottom: 20px;
+}
+
+
+/*AWARDS*/
+.awards {
+  background-color: #272727; /*배경색상*/
+}
+.awards .inner {
+  padding: 40px 0;/*내부여백*/
+}
+.awards .swiper-container {/*슬라이드되는 화면의 크기*/
+  width: 100%;
+  height: 40px;
+}
+.awards .swiper-prev,
+.awards .swiper-next {
+  width: 42px;
+  height: 42px;
+  outline: none;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  opacity: .3;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .4s;
+}
+.awards .swiper-prev {
+  left: -100px;
+}
+.awards .swiper-next {
+  right: -100px;
+}
+.awards .swiper-prev:hover, /*:hover --> 마우스를 올리면 어떻게 처리할껀지*/
+.awards .swiper-next:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+
+/*SCROLL TO TOP*/
+#to-top {
+  
+  width: 42px;
+  height: 42px;
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #fff;/* 테두리선 */
+  border-radius: 10px; /* 모서리를 둥글게 깎는다 */
+  cursor: pointer; /* 마우스 커서 손가락 모양으로 */
+  display: flex;
+  justify-content: center;/* 수평 가운데 정렬*/
+  align-items: center;/* 수직 가운데 정렬 */
+  position: fixed; /* 뷰포트를 기준으로 배치 */
+  bottom: 30px; 
+  right: 30px;
+  z-index: 9;/*다른섹션보다 젤 위에 있을 수 있도록 */
+}
